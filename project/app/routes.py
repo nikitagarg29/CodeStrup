@@ -1,27 +1,22 @@
 from app import app
-from flask import render_template
-from flask_wtf import FlaskForm
-from flask_codemirror.fields import CodeMirrorField
-from wtforms.fields import SubmitField
-from app.editor import MyForm
+from flask import render_template, Response, flash, redirect
+from app.forms import LoginForm
+
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title = 'My Page')
-@app.route('/project')
-def project():
-    return render_template('projects.html')
-@app.route('/experience')
-def experience():
-    return render_template('experience.html')
-@app.route('/skills')
-def skills():
-    return render_template('skills.html')
+    return render_template('index.html', title = 'Code Guide')
 
-@app.route('/editor', methods = ['GET', 'POST'])
-def editor():
-    form = MyForm()
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
     if form.validate_on_submit():
-        text = form.source_code.data
-    return render_template('editor.html', form=form)
+        flash('Login requested for user {}, remember_me={}'.format(
+            form.username.data, form.remember_me.data))
+        return redirect('/index')
+    return render_template('login.html', title='Sign In', form=form)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', debug=True)

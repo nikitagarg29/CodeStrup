@@ -1,6 +1,7 @@
 from flask import Flask
-import app.config
+from app.config import Config
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "no"
+app.config.from_object(Config)
+
 from app import routes
