@@ -1,4 +1,4 @@
-# CodeStrup
+ # CodeStrup
 
 ## Objective:
     
@@ -27,7 +27,7 @@ C++
 * The application will also have some quizzes and the users will be ranked according to their score.
 * Admins will be able to add and edit quizzes and access the data of all the users.
 
-## Literature:
+## Literature review:
 
 GeekforGeeks : A similar site which covers theory of basic data structures and algorithms and has a code editor integrated within the site besides conducting regular contests.
 
