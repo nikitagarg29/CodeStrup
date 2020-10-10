@@ -29,7 +29,7 @@ C++
 
 ## Literature review:
 
-GeekforGeeks : A similar site which covers theory of basic data structures and algorithms and has a code editor integrated within the site besides conducting regular contests.
+GeeksforGeeks : A similar site which covers theory of basic data structures and algorithms and has a code editor integrated within the site besides conducting regular contests.
 
 ## Tech Stack:
 
