@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Queue </title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1> Queues </h1>
+        <div class="definition">
+            <p>
+                A Queue is a linear structure which follows a particular order in which the operations are performed. It follows the First In First Out (FIFO) order. The least recently entered element is the first one to be removed. 
+            </p>
+        </div>
+
+        <div class="reallife">
+            <ul>
+
+            </ul>
+            <!--max three-->
+        </div>
+
+        <div class="terminology">
+            <ol>
+
+            </ol>
+        </div>
+
+        <div class="common"> 
+            <h2> Common Operations </h2>
+
+            <div class="operation">
+            <h3> Insertion - Enqueue </h3>
+            <p>An element is always enqueued at the rear end of the queue. In a linear array based implementation of a queue, this enqueue operation is a constant time operation.</p>
+            <br>
+            <code>
+                void enqueue(int x) { <br>
+                    if (is_full()) { <br>
+                        cout << "Queue is full!" << endl; <br>
+                        return; <br>
+                    } <br>
+                    r += 1; <br>
+                    arr[r] = x; <br>
+                    return; <br>
+                } <br>
+            </code>
+            <!--gif-->
+            <img style="width:50%;" src="enqueue.PNG" alt="enqueue image">
+            </div>
+
+            <div class="operation">
+            <h3> Deletion - Dequeue </h3>
+            <p>
+            An element is always dequeued from the front of the queue. In a linear array based implementation of a queue, this operation is an O(n) operation as all elements in the queue need to be shifted back by one index every time an element is dequeued.
+            </p>
+            <br>
+            <code>
+                int dequeue() { <br>
+                    if (is_empty()) { <br>
+                        cout << "Queue is empty!" << endl; <br>
+                        return -1; <br>
+                    } <br>
+                    int front = arr[0]; <br>
+                    for (int i = 0; i < r; i++) { <br>
+                        arr[i] = arr[i + 1]; <br>
+                    } <br>
+                    r -= 1; <br>
+                    return front; <br>
+                } <br>
+            </code>
+
+            <img style="width: 50%;" src="dequeue.PNG" alt="dequeue image">
+            </div>
+        </div>
+
+        <div class="complexity">
+            <!--table-->
+            <!--columns: function, time complexity, space complexity-->
+        </div>
+
+        <div class="comparison">
+            <!--table of comparison of one ds with another-->
+        </div>
+    </body>
+</html>
+
+<!--yet to add a section dedicated to miscellaneous problems-->
