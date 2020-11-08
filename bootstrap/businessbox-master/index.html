@@ -323,6 +323,92 @@ License URL: https://creativecommons.org/licenses/by/4.0/
       </div>   
     </section> -->
 	  
+	  <section id="about" class="about">
+    <div class="content-inner chart-cont" style="display: block;">
+    <div class="row">
+    <div class="col-md-12 mt-5" >
+        <div class="main-timeline" id="timeline-2" style="padding-right: 13%; padding-left: 13%; padding-top: 2%; padding-bottom: 2%;">
+            <div class="timeline" >
+                <div class="timeline-content">
+                    <span class="post">Arrays</span>
+                    <img src="array_intro.png" alt="Array">
+                    <h4 class="title"><br>Learning about searching and sorting arrays.</h4>
+                </div>
+            </div>
+
+            <div class="timeline" >
+                <div class="timeline-content">
+                    <span class="post">Stacks</span>
+                    <img src="stack_intro.jpg" alt="Stack">
+                    <h4 class="title"><br>Learning about common operations and implementing multiple stacks.</h4>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-content">
+                    <span class="post">Queues</span>
+                    <img src="queue_intro.jpg" alt="queue">
+                    <h4 class="title"><br>Implementing linear and circular queue.</h4>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-content">
+                    <span class="post">Linked Lists</span>
+                    <img src="linkedlist_intro.jpg" alt="LinkedList">
+                    <h4 class="title"><br>Implementing common operations of singly linked list.</h4>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-content">
+                    <span class="post">Trees</span>
+                    <img src="tree_intro.jpg" alt="Tree">
+                    <h4 class="title"><br>Learning about different ways of traversing a tree.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="admin/js/jquery.min.js"></script>
+    <script src="admin/js/popper/popper.min.js"></script>
+    <script src="admin/js/tether.min.js"></script>
+    <script src="admin/js/bootstrap.min.js"></script>
+    <script src="admin/js/jquery.cookie.js"></script>
+    <script src="admin/js/jquery.validate.min.js"></script>
+    <script src="admin/js/chart.min.js"></script>
+    <script src="admin/js/front.js"></script>
+    <script>
+        new Chart(document.getElementById("myChart-nav").getContext('2d'), {
+          type: 'doughnut',
+          data: {
+            labels: ["M", "T", "W", "T", "F", "S", "S"],
+            datasets: [{
+              backgroundColor: [
+                "#2ecc71",
+                "#3498db",
+                "#95a5a6",
+                "#9b59b6",
+                "#f1c40f",
+                "#e74c3c",
+                "#34495e"
+              ],
+              data: [12, 19, 3, 17, 28, 24, 7]
+            }]
+          },
+          options: {
+              legend: { display: false },
+              title: {
+                display: true,
+                text: ''
+               }
+            }
+        });
+    </script>
+
+  </section>
 
 <!--====================================================
                         OFFER
