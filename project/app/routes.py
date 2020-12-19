@@ -64,7 +64,9 @@ def queue():
 @app.route('/linkedlist')
 def linkedlist():
     return render_template('linkedlist.html', title = 'Code Guide')
-
+@app.route('/tree')
+def tree():
+    return render_template('tree.html', title = 'Code Guide')
 questionsll = [
 {
 "id": "1",

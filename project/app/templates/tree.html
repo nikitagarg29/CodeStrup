@@ -1,0 +1,66 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+
+	<h1>INSERTION IN TREE</h1>
+	<p>A tree data structure is built recursively i.e. we begin with the root node and then build its left and right subtrees by calling the function again. The function calls proceed in the similar fashion until we insert a stopping value (can be -1).
+		<p>
+		A tree supports 4 kinds of traversal routes that are : </p>
+		<list>
+			<ul>
+				<li>PREORDER</li>
+				<li>POSTORDER</li>
+				<li>INORDER</li>
+				<li>LEVELORDER</li>
+			</ul>
+		</list>
+	<h> 1. <b>Preorder Traversal</b> - In this method of traversal the root of the tree is visited first then its left child and then the right child.<br>
+		<code>
+			void preorder(node*root){<br>
+			     if(root==NULL){<br>
+			     return NULL;<br>
+			 }<br>
+			     cout<<root->data;<br>
+			     preorder(root->left);<br>
+			     preorder(root->right);<br>
+			 }
+		</code>	 
+		<img src="C:\Users\Ridhima\Documents\wev dev\images\preorder.gif" height="250px" width="500px">
+		</h><br><br>
+
+	<h> 2. <b>Postorder traversal</b> - In this method of traversal the left node is visted first then the right node and at last the root node.<br>
+        <code>
+			void postorder(node*root){<br>
+			     if(root==NULL){<br>
+			     return NULL;<br>
+			 }<br>
+			     postorder(root->left);<br>
+			     postorder(root->right);<br>
+			     cout<<root->data;<br>
+			 }
+		</code>	 
+		<img src="C:\Users\Ridhima\Documents\wev dev\images\postorder.gif" height="250px" width="500px">
+
+	</h><br><br>
+
+
+	<h> 3. <b>Inorder Traversal</b>- In this method the left node is visited first then the root node and then the right node.<br>
+         <code>
+			void inorder(node*root){<br>
+			     if(root==NULL){<br>
+			     return NULL;<br>
+			 }<br>
+			     inorder(root->left);<br>
+			     cout<<root->data;<br>
+			     inorder(root->right);<br>
+			 }
+		</code>	 
+		<img src="C:\Users\Ridhima\Documents\wev dev\images\inorder.gif" height="250px" width="500px">
+
+	</h><br><br>
+
+
+	<h> 4. <b>Levelorder Traversal</b> - In this method the nodes are are processed (visited) level by level from left to right.</h><br>
+	
+
+{% endblock %}
