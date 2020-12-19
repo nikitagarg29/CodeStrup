@@ -1,0 +1,273 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+
+        <h1>Linked List</h1>
+        <div class="definition">
+            <p>
+                Like arrays, Linked List is a linear data structure.  Unlike arrays, linked list elements are not stored at a contiguous location; the elements are linked using pointers.
+            </p>
+        </div>
+
+        <div class="reallife">
+          <h3>Some real-life applications of Linked Lists are: </h3>
+            <ul>
+              <li><strong>Image viewer</strong> – Previous and next images are linked, hence can be accessed by next and previous button.</li>
+              <li><strong>Previous and next page in web browser</strong> – We can access previous and next url searched in web browser by pressing back and next button since, they are linked as linked list.</li>
+              <li><strong>Music Player</strong> – Songs in music player are linked to previous and next song. you can play songs either from starting or ending of the list.</li>
+            </ul>
+        </div>
+
+        <div class="comparison">
+          <h3>Comparing Linked List and Array</h3>
+          <table>
+            <tr><th>Basis</th>
+              <th>Array</th>
+              <th>Linked List</th></tr>
+            <tr>
+              <td>Random access</td>
+              <td>Allow any element to be accessed randomly using its index,making them suitable for binary search .</td>
+              <td>The default implementation of linked lists do not allow random access.</td>
+            </tr>
+            <tr>
+              <td>Space for storing each element</td>
+              <td><p>Store the element without using any extra space.</p><p>Example: 4(int type) is stored in 4 bytes.</p></td>
+              <td><p>Require extra space for storing pointer</p><p>Example: 4(int type) would require more space.(storing data(4)+ the next pointer)</p></td>
+            </tr>
+            <tr>
+              <td>Size</td>
+              <td>Static: The total number of elements need to be predefined resulting in inefficient allocation of space.</td>
+              <td>Dynamic: The whole memory space can be effectively used.</td>
+            </tr>
+            <tr>
+              <td>Insertion/ Deletion</td>
+              <td>If you insert an element at beginning, you would need to shift all the elements to make room for new element, which would take O(n) time. Similarly, if you want to delete an element, you need to shift all the elements.</td>
+              <td>Insertion and deletion are simpler as we do not need to shift any elements.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="terminology">
+          <h2>Represntation of Linked List</h2>
+          <ul>
+            <li>A linked list is a series of connected nodes.</li>
+            <li>Each node contains:<ul>
+              <li>Data (can be of any type)</li>
+              <li>Pointer to the next node</li>
+            </ul></li>
+            <li>Head pointer points to the first node of linked list.</li>
+            <li>The next pointer of last node points to NULL.</li>
+          </ul>
+          <img src="C:\Users\JITENDER\Desktop\Wd4e\Linkedlist.png" alt="linkedlist">
+        </div>
+
+        <div>
+          <h3>Traversing a Linked List</h3>
+          <code>
+            ShowList(Node* node){   //This will print the linked list. <br>
+               while (node!=NULL){  <br>
+                  cout << node->data << endl; <br>
+                  node = node->next;   <br>
+                }  <br>
+            }  <br>
+          </code>
+
+        <div class="common">
+            <h2> Common Operations </h2>
+
+            <div class="operation">
+            <h3>Inserting a node at the beginning of linked list</h3>
+            <br>
+            <code>
+              void InsertAtStart(int new_val) {  <br>
+                  Node*new_node = new Node(); <br>
+                  new_node->data = new_val; <br>
+                  new_node->next = head;  <br>
+                  head = new_node;<br>
+              } <br>
+            </code>
+            <img src="llinsert1.gif" alt="Insertion at head">
+            <p>Since each line of code is implemented once, it takes constant time to perform this function. Hence time complexity of insertion at beginning is O(1).</p>
+            <p>Also, no auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
+            </div>
+
+            <div class="operation">
+            <h3>Inserting a node at the end of linked list</h3>
+            <br>
+            <code>
+              void InsertAtEnd(int new_val) { <br>
+                  Node* new_node = new Node();<br>
+                  Node* last = head;<br>
+                  new_node->data = new_val;<br>
+                  new_node->next = NULL;<br>
+                  if(head ==NULL){<br>
+                      head = new_node; <br>
+                      return;<br>
+                  }<br>
+                  while(last->next != NULL) <br>
+                      last = last->next;  <br>
+                  last->next = new_node; <br>
+                  return;  <br>
+              } <br>
+            </code>
+            <img src="llinsert2.gif" alt="Insertion at end">
+            <p>To reach the last element of linked list, we need to traverse the whole linked list.Hence time complexity of insertion at end is O(n).</p>
+            <p>However, this can be achieved in O(1) time complexity if along with head pointer, we also maintain a tail pointer.</p>
+            <p>No auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
+            </div>
+
+            <div class="operation">
+            <h3>Inserting a node after a given node in linked list</h3>
+            <br>
+            <code>
+              void insertAfter(Node* prev_node, int value){  <br>
+                  if (prev_node == NULL){   <br>
+                     cout << "the given previous node cannot be NULL"; <br>
+                     return;   <br>
+                  }  <br>
+    <br>
+                  Node* new_node = new Node();   <br>
+                  new_node->data = value;<br>
+                  new_node->next = prev_node->next;   <br>
+                  prev_node->next = new_node;   <br>
+              } <br>
+            </code>
+            <img src="llinsert3.gif" alt="Insertion after given node">
+            <p>Since each line of code is implemented once, it takes constant time to perform this function. Hence time complexity of insertion after a node is O(1).</p>
+            <p>Also, no auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
+            </div>
+
+            <div class="operation">
+            <h3>Deleting a node from the beginning of linked list</h3>
+            <br>
+            <code>
+              void DelAtStart() {<br>
+                if(head == NULL) { <br>
+                  cout<<"Deletion not possible as list is empty."<<endl;  <br>
+                  return; <br>
+                }  <br>
+                Node*temp = head; <br>
+                head = head->next; <br>
+                delete temp;  <br>
+                return;  <br>
+              }  <br>
+            </code>
+            <img src="lldel1.gif" alt="Deletion from beginning">
+            <p>Since each line of code is implemented once, it takes constant time to perform this function. Hence time complexity of deletion from beginning is O(1).</p>
+            <p>Also, no auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
+            </div>
+
+            <div class="operation">
+            <h3>Deleting a node from the end of linked list</h3>
+            <br>
+            <code>
+              void DelAtEnd() {  <br>
+                //Check if the list is empty  <br>
+                if(head==NULL){ <br>
+                  cout<<"Deletion not possible as list is empty."<<endl; <br>
+                  return; <br>
+                }<br><br>
+                //If there is only 1 element in list  <br>
+                if(head->next == NULL){ <br>
+                  delete head; <br>
+                  head = NULL; <br>
+                  return; <br>
+                } <br><br>
+
+                Node* temp = head;  <br>
+                while(temp->next->next != NULL) <br>
+                  temp = temp->next; <br>
+<br>
+                delete (temp->next); <br>
+                temp->next = NULL; <br>
+                return; <br>
+              } <br>
+
+            </code>
+            <img src="lldel2.gif" alt="Deletion at end">
+            <p>To reach the last element of linked list, we need to traverse the whole linked list.Hence time complexity of deleting a node from end is O(n).</p>
+            <p>No auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
+            </div>
+
+            <div class="operation">
+            <h3>Deleting a node whose value is given from linked list</h3>
+            <br>
+            <code>
+              void DelNode(int key){  <br>
+                //Check if the list is empty  <br>
+                if(head==NULL){ <br>
+                  cout<<"Deletion not possible as list is empty."<<endl; <br>
+                  return; <br>
+                }<br><br>
+                Node* temp = head; <br>
+                Node* prev; <br>
+                if(temp!=NULL && temp->data==key){<br>
+                  head = temp->next; <br>
+                  delete temp; <br>
+                  return; <br>
+                } <br><br>
+                while(temp != NULL && temp->data != key){  <br>
+                  Node* prev = temp; <br>
+                  temp = temp->next; <br>
+                }
+                if(temp == NULL) return; <br>
+                prev->next = temp->next; <br>
+                delete temp; <br>
+              }  <br>
+            </code>
+            <img src="lldel3.gif" alt="Deleting a node using key">
+            <p>In order to find the desired node, we need to traverse the linked list.</p>
+            <p>The best case would be, when the desired node is first node. Time complexity would be O(1).</p>
+            <p>In average case, desired node in middle of list, we would need to approximately n/2 operations, which mean Time complexity = O(n).</p>
+            <p>In worst case, we need to traverse the whole list. Time complexity would be O(n).</p>
+            <p>No auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
+            </div>
+
+          </div>
+
+        <div class="complexity">
+          <h2>Time and space complexity Analysis</h2>
+            <table>
+              <tr>
+                <th>Operation</th>
+                <th>Time Complexity</th>
+                <th>Space Complexity</th>
+              </tr>
+              <tr>
+                <td>List traversal</td>
+                <td>O(n)</td>
+                <td>O(1)</td>
+              </tr>
+              <tr>
+                <td>Insertion at beginning</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+              </tr>
+              <tr>
+                <td>Insertion at end</td>
+                <td>O(n)</td>
+                <td>O(1)</td>
+              </tr>
+              <tr>
+                <td>Insertion after a node</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+              </tr>
+              <tr>
+                <td>Deletion from beginning</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+              </tr>
+              <tr>
+                <td>Deletion from end</td>
+                <td>O(n)</td>
+                <td>O(1)</td>
+              </tr>
+              <tr>
+                <td>Deletion using given key</td>
+                <td>O(n)</td>
+                <td>O(1)</td>
+              </tr>
+            </table>
+        </div>
+{% endblock %}

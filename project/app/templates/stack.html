@@ -1,0 +1,469 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+
+        <h1 style=text-align:center;"><strong><u>STACK</u></strong></h1>
+        <h2><strong>Introduction</strong></h2>
+        <div class="definition">
+            <p>
+                A stack is a linear data structure, it serves as a collection of elements. It follows LIFO, i.e., last-in first-out. 
+		        In other words, the addition and removal of a new element in a stack takes place at the same end.		        		        
+            </p>
+            <img src="StackRep.gif" alt="Graphical Representation of a Stack">
+        </div>
+        <div class="terminology">
+            <p>
+                The end of the stack where the insertion and deletion takes place is known as its top and the opposite end is known as the base.
+            </p>                     
+        </div>
+        <div class="reallife">
+            <p>
+                Some real life examples of a stack are:
+            </p>
+            <ul>
+                <li>A pile of books</li>
+                <li>A stack of plates</li>                
+            </ul>
+            <p>
+                Imagine there is a desk in front of you with a pile of books lying on top of it.
+                The book which is at the top will be the first one to be removed and the book which has been placed at the bottommost 
+		        position will remain in the stack for the longest period of time.
+            </p>
+        </div>
+        <div class="common">
+            <h2><strong>Operations on stack</strong></h2>
+            <p>
+                The following operations are the 5 basic operations that can be performed on a stack: 
+            </p>
+            <ul>
+                <li>Push: Inserts an element into a stack.</li>
+		        <li>Pop: Removes an element from the stack.</li>
+		        <li>Peek/ Top: Displays the element at the top of the stack.</li>
+		        <li>isEmpty: Tells us whether a stack is empty or not.</li>
+		        <li>isFull: Tells us whether a stack is full or not.</li>
+            </ul>
+            <div class="operation">
+                <h3>isEmpty:-</h3>
+                <code>
+                    bool isEmpty()<br>
+                    {<br>
+                        &nbsp;if (top < 1)<br>
+		                &nbsp;&nbsp;return true;<br>
+                        &nbsp;else<br>
+		                &nbsp;&nbsp;return false;<br>
+                    }<br>
+                </code>
+                <p>
+                    <u>Time Complexity</u>: O(1)
+                </p>
+            </div>
+            <div class="operation">
+                <h3>isFull:-</h3>
+                <code>
+                    bool isFull()<br>
+                    {<br>
+                    &nbsp;if (top == n)<br>
+		            &nbsp;&nbsp;return true;<br>
+                    &nbsp;else<br>
+		            &nbsp;&nbsp;return false;<br>
+                    }<br>
+                </code>
+                <p>
+                    <u>Time Complexity</u>: O(1)
+                </p>
+            </div>
+            <div class="operation">
+               <h3>Peek/ Top:-</h3>
+               <code>
+                    int peek()<br>
+                    {<br>
+                        &nbsp;return stack[top];<br>
+                    }<br>
+                </code>
+                <p>
+                    <u>Time Complexity</u>: O(1)
+                </p>
+                <img src="peek.gif" alt="Diagramatic representation of peek operation">
+            </div>
+            <div class="operation">
+                <h3>Push:-</h3>
+                <code>
+                    void push(int data)<br>
+                    {<br>
+                        &nbsp;if (isFull)<br>
+                        &nbsp;&nbsp;print (“Stack overflow”); 	//Stack is full<br>
+                        &nbsp;else<br>
+                        &nbsp;{<br>
+                            &nbsp;&nbsp;top = top + 1;<br>
+		                    &nbsp;&nbsp;stack[top]  = data;<br>
+                        &nbsp;}<br>
+                    }<br>
+                </code>
+                <p>
+                    <u>Time Complexity</u>: O(1)
+                </p>
+                <img src="push.gif" alt="Diagramatic representation of push operation">
+            </div>
+            <div class="operation">
+                <h3>Pop:-</h3>
+                <code>
+                    int pop()<br>
+                    {<br>
+	                    &nbsp;if (isEmpty)<br>
+                            &nbsp;&nbsp;print (“Stack underflow”);	//stack is empty<br>
+                        &nbsp;else<br>
+	                    &nbsp;{<br>
+		                    &nbsp;&nbsp;data = stack[top];<br>
+		                    &nbsp;&nbsp;top = top – 1;<br>
+		                    &nbsp;&nbsp;return data;<br>
+                        &nbsp;}<br>
+                    }<br>
+                </code>
+                <p>
+                    <u>Time Complexity</u>: O(1)
+                </p>
+                <img src="pop.gif" alt="Diagramatic representation of pop operation">
+            </div>
+            <p>
+                The following animation shows a list of operations being performed on a stack.<br>
+                push(2), push(4), push(6), pop(), peek(), push(8)<br>
+            </p>
+            <img src="StackOp.gif" alt="Basic operations on a Stack">
+        </div>
+        <div class="implementation">
+            <h2><strong>Implementation of two stacks using an array</strong></h2>
+            <p>
+                To implement two stacks in a single array, there are two methods. 
+            </p>
+            <h3>Method 1:</h3>
+            <p>
+                In the first approach, we divide the array in two halves. 
+                The first half of the array, i.e., arr[0] to arr[n/2], is used for the first stack
+                whereas the second half of the array, i.e., arr[(n/2) + 1] to arr[n – 1], is used for the second stack.<br>
+                Where, n = size of the array.<br>
+                t1 = top of stack 1.<br>
+                t2 = top of stack 2.<br>                
+            </p>
+            <img src="Method1.gif" alt="Graphical Representation of a implementation of method 1">
+            <p>
+                <u>Making stacks</u>:-
+            </p>
+            <code>
+                stk(int n)<br>
+                {<br>
+	                &nbsp;size = n;<br>
+                    &nbsp;arr = new int [n];<br>
+	                &nbsp;t1 = (n / 2) + 1;<br>
+	                &nbsp;t2 = n / 2;<br>
+                }<br>
+            </code>
+            <p>
+                <u>Pushing an element in stack 1</u>:-
+            </p>
+            <code>
+                void push1 (int x)<br>
+                {<br>
+	                &nbsp;if (t1 > 0)<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;t1--;<br>
+		                &nbsp;&nbsp;arr [t1] = x;<br>
+                    &nbsp;}<br>
+	                &nbsp;else<br>
+                    &nbsp;&nbsp;print (“Stack Overflow”);<br>
+	                &nbsp;return;<br>
+                }
+            </code>
+            <p>
+                <strong>Time Complexity</strong>: O(1)
+            </p>
+            <p>
+                <u>Pushing an element in stack 2</u>:-
+            </p>
+            <code>
+                void push2(int x)<br>
+                {<br>
+	                &nbsp;if (t2 < size - 1)<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;t2++;<br>
+		                &nbsp;&nbsp;arr [t2] = x;<br>
+                    &nbsp;}<br>
+	                &nbsp;else<br>
+                        &nbsp;&nbsp;print (“Stack Overflow”);<br>
+                    &nbsp;return;<br>
+                }<br>
+            </code>
+            <p>
+                <strong>Time Complexity</strong>: O(1)
+            </p>
+            <p>
+                <u>Popping an element from stack 1</u>:-
+            </p>
+            <code>
+                int pop1 ()<br>
+                {<br>
+	                &nbsp;if (t1 <= size / 2)<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;int x = arr[t1];<br>
+		                &nbsp;&nbsp;t1++;<br>
+		                &nbsp;&nbsp;return x;<br>
+                    &nbsp;}<br>
+	                &nbsp;else<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;print (“Stack Underflow”);<br>
+		                &nbsp;&nbsp;exit(1);<br>
+                    &nbsp;}<br>
+                }<br>
+            </code>
+            <p>
+                <strong>Time Complexity</strong>: O(1)
+            </p>
+            <p>
+                <u>Popping an element from stack 2</u>:-
+            </p>
+            <code>
+                int pop2 ()<br>
+                {<br>
+	                &nbsp;if (t2 >= (size / 2) + 1)<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;int x = arr[t2];<br>
+		                &nbsp;&nbsp;t2--;<br>
+		                &nbsp;&nbsp;return x;<br>
+                    &nbsp;}<br>
+	                &nbsp;else<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;print (“Stack Underflow”);<br>
+		                &nbsp;&nbsp;exit(1);<br>
+                    &nbsp;}<br>
+                }<br>
+            </code>
+            <p>
+                <strong>Time Complexity</strong>: O(1)
+            </p>
+            <p>
+                The <strong>space complexity</strong> for the first method is O(n).
+            </p>
+            <h3>Method 2:</h3>
+            <p>
+                In this approach, we start the two stacks from the two extreme corners of the array arr[]. 
+                The first stack starts from the leftmost element of the array and second stack starts from the rightmost element of the array. 
+                Both stacks increase/ decrease in the opposite direction.<br>                
+            </p>
+            <img src="Method2.gif" alt="Graphical Representation of a implementation of method 2">
+            <p>
+                <u>Making stacks</u>:-
+            </p>
+            <code>
+                stk(int n)<br>
+                {<br>
+	                &nbsp;size = n;<br>
+                    &nbsp;arr = new int [n];<br>
+	                &nbsp;t1 = -1;<br>
+	                &nbsp;t2 = size;<br>
+                }<br>
+            </code>
+            <p>
+                <u>Pushing an element in stack 1</u>:-
+            </p>
+            <code>
+                void push1 (int x)<br>
+                {<br>
+	                &nbsp;if (t1 < t2 - 1)<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;t1++;<br>
+		                &nbsp;&nbsp;arr [t1] = x;<br>
+                    &nbsp;}<br>
+                    &nbsp;else<br>
+                    &nbsp;{<br>
+                        &nbsp;&nbsp;print (“Stack Overflow”);<br>
+                        &nbsp;&nbsp;exit(1);<br>
+                    &nbsp;}<br>
+                }
+            </code>
+            <p>
+                <strong>Time Complexity</strong>: O(1)
+            </p>
+            <p>
+                <u>Pushing an element in stack 2</u>:-
+            </p>
+            <code>
+                void push2(int x)<br>
+                {<br>
+	                &nbsp;if (t1 < t2 - 1)<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;t2++;<br>
+		                &nbsp;&nbsp;arr [t2] = x;<br>
+                    &nbsp;}<br>
+	                &nbsp;else<br>
+                        &nbsp;&nbsp;print (“Stack Overflow”);<br>
+                    &nbsp;return;<br>
+                }<br>
+            </code>
+            <p>
+                <strong>Time Complexity</strong>: O(1)
+            </p>
+            <p>
+                <u>Popping an element from stack 1</u>:-
+            </p>
+            <code>
+                int pop1 ()<br>
+                {<br>
+	                &nbsp;if (t1 <= size / 2)<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;int x = arr[t1];<br>
+		                &nbsp;&nbsp;t1++;<br>
+		                &nbsp;&nbsp;return x;<br>
+                    &nbsp;}<br>
+	                &nbsp;else<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;print (“Stack Underflow”);<br>
+		                &nbsp;&nbsp;exit(1);<br>
+                    &nbsp;}<br>
+                }<br>
+            </code>
+            <p>
+                <strong>Time Complexity</strong>: O(1)
+            </p>
+            <p>
+                <u>Popping an element from stack 2</u>:-
+            </p>
+            <code>
+                int pop2 ()<br>
+                {<br>
+	                &nbsp;if (t2 >= (size / 2) + 1)<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;int x = arr[t2];<br>
+		                &nbsp;&nbsp;t2--;<br>
+		                &nbsp;&nbsp;return x;<br>
+                    &nbsp;}<br>
+	                &nbsp;else<br>
+	                &nbsp;{<br>
+		                &nbsp;&nbsp;print (“Stack Underflow”);<br>
+		                &nbsp;&nbsp;exit(1);<br>
+                    &nbsp;}<br>
+                }<br>
+            </code>
+            <p>
+                <strong>Time Complexity</strong>: O(1)
+            </p>
+            <p>
+                The <strong>space complexity</strong> for the second method is O(n).
+            </p>            
+        </div>
+        <div class="complexity">
+            <h2><strong>Time and Space Complexity</strong></h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td width="200">
+                            <p>Function</p>
+                        </td>
+                        <td width="200">
+                            <p>Time complexity</p>
+                        </td>
+                        <td width="200">
+                            <p>Space complexity</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="200">
+                            <p>Push</p>
+                        </td>
+                        <td width="200">
+                            <p>O(1)</p>
+                        </td>
+                        <td width="200">
+                            <p>O(1)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="200">
+                            <p>Pop</p>
+                        </td>
+                        <td width="200">
+                            <p>O(1)</p>
+                        </td>
+                        <td width="200">
+                            <p>O(1)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="200">
+                            <p>isEmpty</p>
+                        </td>
+                        <td width="200">
+                            <p>O(1)</p>
+                        </td>
+                        <td width="200">
+                            <p>O(1)</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="200">
+                            <p>isFull</p>
+                        </td>
+                        <td width="200">
+                            <p>O(1)</p>
+                        </td>
+                        <td width="200">
+                            <p>O(1)</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="comparison">
+            <h2><strong>Difference between a stack and an array</strong></h2>
+            <table width="0">
+                <tbody>
+                    <tr>
+                        <td width="240">
+                            <p><strong>STACK</strong></p>
+                        </td>
+                        <td width="240">
+                            <p><strong>ARRAY</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="240">
+                            <p>Stacks are based on the LIFO principle. The element that is inserted last is&nbsp;the first element that comes out of the stack.</p>
+                        </td>
+                        <td width="240">
+                            <p>Elements in an array are indexed, if you want&nbsp;you have to write the variable name with its index or location within the square bracket. E.g. arr[4].</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="240">
+                            <p>In a stack, insertion and deletion take place at the same end, this end is called the top.</p>
+                        </td>
+                        <td width="240">
+                            <p>In an array, insertion and deletion can be done at any index.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="240">
+                            <p>Size of a stack is dynamic, i.e., it can change.</p>
+                        </td>
+                        <td width="240">
+                            <p>Size of an array is fixed.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="240">
+                            <p>A stack can have elements that belong to different data types.</p>
+                        </td>
+                        <td width="240">
+                            <p>An array can only contain elements that belong to the same data type.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="240">
+                            <p>A stack can only be searched linearly.</p>
+                        </td>
+                        <td width="240">
+                            <p>An array can be searched using both, linear and binary search.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock %}

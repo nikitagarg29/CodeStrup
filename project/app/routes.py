@@ -7,6 +7,7 @@ from werkzeug.urls import url_parse
 import sqlite3
 
 @app.route('/')
+
 @app.route('/index')
 def index():
     return render_template('index.html', title = 'Code Guide')
@@ -55,6 +56,24 @@ def register():
         flash('You are registered!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route('/aboutus')
+def aboutus():
+    return render_template('about.html', title = 'Code Guide')
+
+@app.route('/array')
+def array():
+    return render_template('array.html', title = 'Code Guide')
+@app.route('/stack')
+def stack():
+    return render_template('stack.html', title = 'Code Guide')
+@app.route('/queue')
+def queue():
+    return render_template('queue.html', title = 'Code Guide')
+@app.route('/linkedlist')
+def linkedlist():
+    return render_template('linkedlist.html', title = 'Code Guide')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

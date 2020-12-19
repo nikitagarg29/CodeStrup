@@ -1,0 +1,274 @@
+{% extends 'base3.html' %}
+
+{% block content %}
+
+        <h1> Arrays </h1>
+        <div class="definition">
+            <p>
+                An array is a collection of items stored contiguously in the memory.
+            </p>
+        </div>
+
+        <div class="reallife">
+            <ul>
+
+            </ul>
+            <!--max three-->
+        </div>
+
+        <div class="terminology">
+            <p>Index: </p>
+            <ol>
+                    <li>
+                        Elements in arrays can be accesssed from their index values
+                    </li>
+
+                    <li>
+                        For exmple the first element is stored at 0th index, the second at 1, the third at 2 and so on....
+                    </li>
+            <ol>
+        </div>
+
+        <div class="common"> 
+            <h2> Common Operations </h2>
+
+            <div class="operation">
+            <h3> Value assignment </h3>
+            <p>
+                In order to assign a value to a particular element in the array we need to access it by it's index value.
+                So 
+            </p>
+            <br>
+            <code>
+                void input_array(int arr[], int size) { <br>
+                    for (int i = 0; i < size(); i++) <br>
+                        cin >> arr[i]; <br>
+                } <br>
+            </code>
+            <!--gif-->
+            <img style="width:50%;" src="enqueue.PNG" alt="enqueue image">
+            </div>
+
+            <div class="operation">
+                <h3> Display Array </h3>
+                <p>
+                    Similarly to display the value of a particular element in the array we need to access it by it's index value.
+                </p>
+                <br>
+                <code>
+                    void display_array(int arr[], int size) { <br>
+                        for (int i = 0; i < size(); i++) <br>
+                            cout << arr[i]; <br>
+                    } <br>
+                </code>
+
+            <img style="width: 50%;" src="dequeue.PNG" alt="dequeue image">
+            </div>
+        </div>
+
+        <div class="algorithms">
+            <h2>Searching in an Array</h2>
+            <div class="searchng">
+                <h3> Linear Search </h3>
+                <p>
+                    The simplest way to search for a value in an array is to traverse through the array element by element until we find the value we are looking for.
+                </p>
+                <br>
+                <code>
+                    void Linear_Search(int arr[], int size, int value) { <br>
+                        for (int i = 0; i < size(); i++) <br>
+                            if (arr[i] == value) <br>
+                                return i; <br>
+                        return -1;
+                    } <br>
+                </code>
+            <img style="width: 50%;" src="dequeue.PNG" alt="dequeue image">
+            </div>
+
+            <div class="searchng">
+                <h3> Binary Search </h3>
+                <p>
+                    The linear search method can be time consuming hence a better method to search for an element in an array is binary search.
+                </p>
+                <p>
+                    However, unlike the linear search method this only works in sorted arrays. As at each stage we are narrowing down the region in which the element might be found, therefore if we were to implement this in an unsorted array then we would not be able to narrow down the region where the element may be found.
+                </p>
+                <p>
+                    In binary search we initialize the variables:
+                    <ol>
+                        <li>
+                            low: as the lowest index value of the array 
+                        </li>
+                        <li>
+                            high: as the highest index value of the array
+                        </li>
+                        <li>
+                            mid: as the middle most index ( (lo + high) / 2 ) value in the array
+                        </li>
+                    </ol>  
+                </p>
+                <p>
+                    We then run a loop wherein we check if the element at mid is equal/greater/smaller compared to the value we are searching for. If-
+                    <ol>
+                        <li>arr[mid] > value: we shift our high to mid - 1 as we now know that we the element is in the low to middle region</li>
+                        <li>arr[mid] < value: we shift our low to mid + 1 as we now know that we the element is in the middle to high region</li>
+                        <li>arr[mid] == value: we have found our element and return mid as the location</li>
+                    </ol>
+                </p>
+                <br>
+                <code>
+                    void  Binary_Search(int arr[], int size, int value) { <br>
+                        int low = 0, high = size - 1; <br>
+                        int mid; <br>
+                        while (low <= high) {<br>
+                            mid = (high + low) / 2; <br>
+                            if (arr[mid] > value) <br>
+                                high = mid - 1; <br>
+                            else if (arr[mid] < value) <br>
+                                low = mid + 1; <br>
+                            else <br>
+                                return mid; <br>
+                        } <br>
+                        return -1; <br>
+                    } <br>
+                </code>
+            <img style="width: 50%;" src="dequeue.PNG" alt="dequeue image">
+            </div>
+        </div>
+
+        <div class="algorithms">
+            <h2> Sorting an Array</h2>
+            <div class="sorting">
+                <h3> Bubble Sort </h3>
+                <p>
+                    Bubble sort is one of the easiest sorting methods.
+                </p>
+                <p>
+                    It is based on the principle that we continue swapping adjacent elements until all the elements are in order.
+                </p>
+                <br>
+                <code>
+                    void bubbleSort(int arr[], int n)  {  <br>
+                            int i, j;  <br>
+                            for (i = 0; i < n-1; i++)     <br>
+                            for (j = 0; j < n-i-1; j++)   <br>
+                                if (arr[j] > arr[j+1])  <br>
+                                    swap(arr[j], arr[j+1]);  <br>
+                        }  <br>
+                </code>
+            <img style="width: 50%;" src="dequeue.PNG" alt="dequeue image">
+            </div>
+
+            <div class="sorting">
+                <h3> Selection Sort </h3>
+                <p>
+                    In selection sort we traverse through the array looking for the minimum element and put it in the begining of the unsorted part of the array. Therefore by the doing this we sort the elements till there is no unsorted part left.
+                </p>
+                <p>
+                    We then run a loop where we traverse through the array, we run a child loop that traverses thrugh the elements following the element in the parent loop.
+                </p>
+                <p>
+                    We then find the minimum element in the unsorted subarray and swap it with the element in the  begining.
+                </p>
+                <br>
+                <code>
+                    void Selection_Sort(int arr[], int n)  {  <br>
+                        int i, j, min_idx;   <br>
+                        for (i = 0; i < n-1; i++)  <br>  
+                        {   <br>
+                            min_idx = i;  <br> 
+                            for (j = i+1; j < n; j++)  <br>  
+                            if (arr[j] < arr[min_idx])   <br>
+                                min_idx = j;   <br>
+                            swap(&arr[min_idx], &arr[i]);  <br>  
+                        }   <br>
+                    }   <br>
+                    } <br>
+                </code>
+            <img style="width: 50%;" src="dequeue.PNG" alt="dequeue image">
+            </div>
+            <div class="sorting">
+                <h3> Insertion Sort </h3>
+                <p>
+                    In this method we divie the array into sorted and unsorted parts and place the element from the unsorted part in the correct position in the sorted part.
+                </p>
+                <p>
+                    We then run a loop where we traverse through the array.
+                </p>
+                <p>
+                    We then compare the value of the element with it's predecessers and if the elements are greater than the value then we move them one index ahead to make spae for the element to be put into the correct position.
+                </p>
+                <br>
+                <code>
+                    void Insertion_Sort(int arr[], int n)  {  <br>
+                        int i, j, element;   <br>
+                        for (i = 1; i < n-1; i++)  <br>  
+                        {   j = i - 1, element = arr[i]; <br>
+                            while (j >= 0 && arr[j] > element) { <br>  
+                                arr[j + 1] = arr[j];  <br>
+                                j = j - 1; <br>
+                            }  <br>
+                            arr[j + 1] = element;  <br>  
+                        }   <br>
+                    }   <br>
+                    } <br>
+                </code>
+            <img style="width: 50%;" src="dequeue.PNG" alt="dequeue image">
+            </div>
+        </div>
+        
+        <div class="content-inner chart-cont">
+            <div class="row">
+            <table class="table table-hover">
+                <tr>
+                <th>Algorithm</th>
+                <th>Time Complexity</th>
+                <th>Space Complexity</th>
+                </tr>
+
+                <tr>
+                    <td>Linear Search</td>
+                    <td>O(n)</td>
+                    <td>O(1)</td>
+                </tr>
+
+                <tr>
+                    <td>Binary Search</td>
+                    <td>O(Log(n))</td>
+                    <td>O(1)</td>
+                <tr>
+
+                <tr>
+                    <td>Bubble Sort</td>
+                    <td>O(n^2)</td>
+                    <td>O(1)</td>
+                <tr>
+
+                <tr>
+                    <td>Selection Sort</td>
+                    <td>O(n^2)</td>
+                    <td>O(1)</td>
+                <tr>
+
+                <tr>
+                    <td>Insertion Sort</td>
+                    <td>O(n^2)</td>
+                    <td>O(1)</td>
+                <tr>
+
+                </tr>
+            </table>
+            <!--table-->
+            <!--columns: function, time complexity, space complexity-->
+            </div>
+        </div>
+
+        <div class="comparison">
+            <!--table of comparison of one ds with another-->
+        </div>
+    </body>
+</html>
+
+<!--yet to add a section dedicated to miscellaneous problems-->
+
+{% endblock %}
