@@ -1,16 +1,17 @@
 {% extends 'base3.html' %}
 
 {% block content %}
-              <form action="/quiz1" method="post">
+<p>All Questions are mandatory, good luck!</p>
+              <form action="/quizLL" method="post">
                 {% for question in data %}
-                <h2>{{ question.question }}</h2>
+                <h4>{{ question.question }}</h4>
 
                 {% for answer in question.answers %}
-                <input type="radio" id="{{ answer }}" name="{{ question.id }}" value="{{ answer }}"> {{ answer }}<br>
-                {% endfor %}
-
+                <input type="radio" id="{{ answer }}" name="{{ question.id }}" value="{{ answer }}" checked> {{ answer }}<br>
                 {% endfor %}
                 <br>
+                {% endfor %}
+                
                 <input type="submit" value="Submit" name="Submit"/>
             </form>
 
