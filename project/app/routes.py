@@ -164,6 +164,39 @@ questionsst = [
 }
 ]
 
+questionstr = [
+    {
+        "id": "1",
+        "question": "Which of the following is a true about Binary Trees",
+        "answers": ["a) Every complete binary tree is also a full binary tree.", "b) Every full binary tree is also a complete binary tree.", "c) None of the above"],
+        "correct": "c) None of the above"
+    },
+    {
+        "id": "2",
+        "question": "The maximum number of binary trees that can be formed with three unlabeled nodes is:",
+        "answers": ["a) 5", "b) 3", "c) 1"],
+        "correct": "a) 5"
+    },
+    {
+        "id": "3",
+        "question": "The number of leaf nodes in a rooted tree of n nodes, with each node having 0 or 3 children is:",
+        "answers": ["a) n / 2", "b) (n - 1) / 2", "c) (2n + 1) / 3"],
+        "correct": "c) (2n + 1) / 3"
+    },
+    {
+        "id": "4",
+        "question": "What is common in three different types of traversals (Inorder, Preorder and Postorder)?",
+        "answers": ["a) Root is visited before right subtree", "b) Left subtree is always visited before right subtree", "c) Root is visited after left subtree"],
+        "correct": "b) Left subtree is always visited before right subtree"
+    },
+    {
+        "id": "5",
+        "question": "Which of the following pairs of traversals is not sufficient to build a binary tree from the given traversals?",
+        "answers": ["a) Preorder and Postorder", "b) Left subtree is always visited before right subtree", "c) Root is visited after left subtree"],
+        "correct": "a) Preorder and Postorder"
+    }
+]
+
 
 @app.route('/quizLL',  methods=['GET', 'POST'])
 def quizll():
