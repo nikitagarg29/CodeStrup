@@ -256,7 +256,7 @@ def quizll():
 @app.route('/quizAr',  methods=['GET', 'POST'])
 def quizar():
     if request.method == 'GET':
-        return render_template("quizll.html", data=questionsar)
+        return render_template("quizar.html", data=questionsar)
     else:
         result = 0
         total = 0
@@ -271,7 +271,7 @@ def quizar():
 @app.route('/quizSt',  methods=['GET', 'POST'])
 def quizst():
     if request.method == 'GET':
-        return render_template("quizll.html", data=questionsst)
+        return render_template("quizst.html", data=questionsst)
     else:
         result = 0
         total = 0
