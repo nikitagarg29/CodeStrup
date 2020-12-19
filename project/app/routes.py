@@ -192,11 +192,43 @@ questionstr = [
     {
         "id": "5",
         "question": "Which of the following pairs of traversals is not sufficient to build a binary tree from the given traversals?",
-        "answers": ["a) Preorder and Postorder", "b) Left subtree is always visited before right subtree", "c) Root is visited after left subtree"],
+        "answers": ["a) Preorder and Postorder", "b) Inorder and Postorder", "c) Preorder and Inorder"],
         "correct": "a) Preorder and Postorder"
     }
 ]
 
+questionsqu = [
+    {
+        "id": "1",
+        "question": "How many stacks are needed to implement a queue. Consider the situation where no other data structure like arrays, linked list is available to you.",
+        "answers": ["a) 1", "b) 2", "c) 3"],
+        "correct": "b) 2"
+    },
+    {
+        "id": "2",
+        "question": "Which of the following is true about linked list implementation of queue?",
+        "answers": ["a) In push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end.", "b) In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning.", "c) Both of the above"],
+        "correct": "c) Both of the above"
+    },
+    {
+        "id": "3",
+        "question": "How many queues are needed to implement a stack. Consider the situation where no other data structure like arrays, linked list is available to you.",
+        "answers": ["a) 1", "b) 2", "c) 3"],
+        "correct": "b) 2"
+    },
+    {
+        "id": "4",
+        "question": "Suppose a circular queue of capacity (n – 1) elements is implemented with an array of n elements. Assume that the insertion and deletion operation are carried out using REAR and FRONT as array index variables, respectively. Initially, REAR = FRONT = 0. The conditions to detect queue full and queue empty are",
+        "answers": ["a) Full: (REAR+1) mod n == FRONT, empty: REAR == FRONT", "b) Full: REAR == FRONT, empty: (REAR+1) mod n == FRONT", "c) Full: (FRONT+1) mod n == REAR, empty: REAR == FRONT"],
+        "correct": "a) Full: (REAR+1) mod n == FRONT, empty: REAR == FRONT"
+    },
+    {
+        "id": "5",
+        "question": "A Priority-Queue is implemented as a Max-Heap. Initially, it has 5 elements. The level-order traversal of the heap is given below: 10, 8, 5, 3, 2 Two new elements '1' and '7' are inserted in the heap in that order. The level-order traversal of the heap after the insertion of the elements is:",
+        "answers": ["a) 10, 8, 7, 5, 3, 2, 1", "b) 10, 8, 7, 3, 2, 1, 5", "c) 10, 8, 7, 1, 2, 3, 5"],
+        "correct": "b) 10, 8, 7, 3, 2, 1, 5"
+    }
+]
 
 @app.route('/quizLL',  methods=['GET', 'POST'])
 def quizll():
