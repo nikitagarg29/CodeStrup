@@ -53,18 +53,23 @@ def aboutus():
     return render_template('about.html', title = 'Code Guide')
 
 @app.route('/array')
+@login_required
 def array():
     return render_template('array.html', title = 'Code Guide')
 @app.route('/stack')
+@login_required
 def stack():
     return render_template('stack.html', title = 'Code Guide')
 @app.route('/queue')
+@login_required
 def queue():
     return render_template('queue.html', title = 'Code Guide')
 @app.route('/linkedlist')
+@login_required
 def linkedlist():
     return render_template('linkedlist.html', title = 'Code Guide')
 @app.route('/tree')
+@login_required
 def tree():
     return render_template('tree.html', title = 'Code Guide')
 questionsll = [
@@ -233,6 +238,7 @@ questionsqu = [
 ]
 
 @app.route('/quizLL',  methods=['GET', 'POST'])
+@login_required
 def quizll():
     if request.method == 'GET':
         return render_template("quizll.html", data=questionsll)
@@ -245,7 +251,7 @@ def quizll():
             total += 1
         current_user.quiz1 = result 
         db.session.commit()
-        return render_template('result1.html', total=total, result=result)
+        return render_template('resultll.html', total=total, result=result)
 
 @app.route('/quizAr',  methods=['GET', 'POST'])
 def quizar():
@@ -260,7 +266,7 @@ def quizar():
             total += 1
         current_user.quiz1 = result 
         db.session.commit()
-        return render_template('result1.html', total=total, result=result)
+        return render_template('resultar.html', total=total, result=result)
 
 @app.route('/quizSt',  methods=['GET', 'POST'])
 def quizst():
@@ -275,7 +281,38 @@ def quizst():
             total += 1
         current_user.quiz1 = result 
         db.session.commit()
-        return render_template('result1.html', total=total, result=result)
+        return render_template('resultst.html', total=total, result=result)
+@app.route('/quizTr',  methods=['GET', 'POST'])
+@login_required
+def quiztr():
+    if request.method == 'GET':
+        return render_template("quiztr.html", data=questionstr)
+    else:
+        result = 0
+        total = 0
+        for question in questionstr:
+            if request.form[question.get('id')] == question.get('correct'):
+                result += 1
+            total += 1
+        current_user.quiz1 = result 
+        db.session.commit()
+        return render_template('resultll.html', total=total, result=result)
+
+@app.route('/quizQu',  methods=['GET', 'POST'])
+@login_required
+def quizqu():
+    if request.method == 'GET':
+        return render_template("quizqu.html", data=questionsqu)
+    else:
+        result = 0
+        total = 0
+        for question in questionsqu:
+            if request.form[question.get('id')] == question.get('correct'):
+                result += 1
+            total += 1
+        current_user.quiz1 = result 
+        db.session.commit()
+        return render_template('resultqu.html', total=total, result=result)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
