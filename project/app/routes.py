@@ -83,13 +83,13 @@ questionsll = [
 "question": "In the worst case, the number of comparisons needed to search a singly linked list of length n for a given element is",
 "answers": ["a) n/2", "b) log n", "c) n"],
 "correct": "c) n"
-}
+},
 {
 "id": "4",
 "question": "What are the time complexities of finding 8th element from beginning and 8th element from end in a singly linked list? Let n be the number of nodes in linked list, you may assume that n > 8.",
 "answers": ["a) O(1) and O(1)", "b) O(1) and O(n)", "c) O(n) and O(1)"],
 "correct": "b) O(1) and O(n)"
-}
+},
 {
 "id": "5",
 "question": "You are given pointers to first and last nodes of a singly linked list, which of the following operations are dependent on the length of the linked list?",
@@ -116,13 +116,13 @@ questionsar = [
 "question": "Elements in an array are accessed",
 "answers": ["a) sequentially", "b) exponentially", "c) randomly"],
 "correct": "c) randomly"
-}
+},
 {
 "id": "4",
 "question": "A program P reads in 500 integers in the range [0..100] exepresenting the scores of 500 students. It then prints the frequency of each score above 50. What would be the best way for P to store the frequencies?",
 "answers": ["a) An array of 500 numbers", "b) An array of 50 numbers", "c) A dynamically allocated array of 550 numbers"],
 "correct": "b) An array of 50 numbers"
-}
+},
 {
 "id": "5",
 "question": "Which of the following operations is not O(1) for an array of sorted data. You may assume that array elements are distinct.",
@@ -149,13 +149,13 @@ questionsst = [
 "question": "Which of the following is true about linked list implementation of stack?",
 "answers": ["a) In push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end.", "b) In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning.", "c) None"],
 "correct": "c) None"
-}
+},
 {
 "id": "4",
 "question": "Assume that the operators +, -, × are left associative and ^ is right associative. The order of precedence (from highest to lowest) is ^, x , +, -. The postfix expression corresponding to the infix expression a + b × c - d ^ e ^ f is",
 "answers": ["a) abc × + de ^ f ^ -", "b) abc × + def ^ ^ -", "c) ab + c × d - e ^ f ^"],
 "correct": "b) abc × + def ^ ^ -"
-}
+},
 {
 "id": "5",
 "question": "To evaluate an expression without any embedded function calls:",
@@ -165,14 +165,44 @@ questionsst = [
 ]
 
 
-@app.route('/quiz1',  methods=['GET', 'POST'])
+@app.route('/quizLL',  methods=['GET', 'POST'])
 def quizll():
     if request.method == 'GET':
-        return render_template("quizll.html", data=questions)
+        return render_template("quizll.html", data=questionsll)
     else:
         result = 0
         total = 0
-        for question in questions:
+        for question in questionsll:
+            if request.form[question.get('id')] == question.get('correct'):
+                result += 1
+            total += 1
+        current_user.quiz1 = result 
+        db.session.commit()
+        return render_template('result1.html', total=total, result=result)
+
+@app.route('/quizAr',  methods=['GET', 'POST'])
+def quizar():
+    if request.method == 'GET':
+        return render_template("quizll.html", data=questionsar)
+    else:
+        result = 0
+        total = 0
+        for question in questionsar:
+            if request.form[question.get('id')] == question.get('correct'):
+                result += 1
+            total += 1
+        current_user.quiz1 = result 
+        db.session.commit()
+        return render_template('result1.html', total=total, result=result)
+
+@app.route('/quizSt',  methods=['GET', 'POST'])
+def quizst():
+    if request.method == 'GET':
+        return render_template("quizll.html", data=questionsst)
+    else:
+        result = 0
+        total = 0
+        for question in questionsst:
             if request.form[question.get('id')] == question.get('correct'):
                 result += 1
             total += 1
