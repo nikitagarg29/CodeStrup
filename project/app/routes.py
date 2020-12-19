@@ -86,7 +86,7 @@ questions = [
     }
 ]
 
-@app.route('/quiz1')
+@app.route('/quiz1',  methods=['GET', 'POST'])
 def quizll():
     if request.method == 'GET':
         return render_template("quizll.html", data=questions)
@@ -97,8 +97,21 @@ def quizll():
             if request.form[question.get('id')] == question.get('correct'):
                 result += 1
             total += 1
-        return render_template('results.html', total=total, result=result)
+        return render_template('result1.html', total=total, result=result)
     #return render_template('quizll.html', title = 'Linked List Quiz')
+
+@app.route("/quiz", methods=['POST', 'GET'])
+def quiz():
+    if request.method == 'GET':
+        return render_template("index.html", data=questions)
+    else:
+        result = 0
+        total = 0
+        for question in questions:
+            if request.form[question.get('id')] == question.get('correct'):
+                result += 1
+            total += 1
+        return render_template('results.html', total=total, result=result)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
