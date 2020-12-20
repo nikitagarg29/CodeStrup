@@ -147,9 +147,9 @@ questionsst = [
 },
 {
 "id": "2",
-"question": "",
-"answers": ["a) Random access is not allowed in a typical implementation of Linked Lists", "b) The size of array has to be pre-decided, linked lists can change their size any time.", "c) Both of these"],
-"correct": "c) Both of these"
+"question": "Which data structure can be used in infix to postfix conversion",
+"answers": ["a) Array", "b) Queue", "c) Stack"],
+"correct": "c) Stack"
 },
 {
 "id": "3",
