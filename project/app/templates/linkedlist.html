@@ -58,7 +58,7 @@
             <li>Head pointer points to the first node of linked list.</li>
             <li>The next pointer of last node points to NULL.</li>
           </ul>
-          <img src="C:\Users\JITENDER\Desktop\Wd4e\Linkedlist.png" alt="linkedlist">
+          <img src="static/gif/Linkedlist.png" alt="linkedlist">
         </div>
 
         <div>
@@ -86,7 +86,7 @@
                   head = new_node;<br>
               } <br>
             </code>
-            <img src="llinsert1.gif" alt="Insertion at head">
+            <img src="static/gif/llinsert1.gif" alt="Insertion at head">
             <p>Since each line of code is implemented once, it takes constant time to perform this function. Hence time complexity of insertion at beginning is O(1).</p>
             <p>Also, no auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
             </div>
@@ -110,7 +110,7 @@
                   return;  <br>
               } <br>
             </code>
-            <img src="llinsert2.gif" alt="Insertion at end">
+            <img src="static/gif/llinsert2.gif" alt="Insertion at end">
             <p>To reach the last element of linked list, we need to traverse the whole linked list.Hence time complexity of insertion at end is O(n).</p>
             <p>However, this can be achieved in O(1) time complexity if along with head pointer, we also maintain a tail pointer.</p>
             <p>No auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
@@ -132,7 +132,7 @@
                   prev_node->next = new_node;   <br>
               } <br>
             </code>
-            <img src="llinsert3.gif" alt="Insertion after given node">
+            <img src="static/gif/llinsert3.gif" alt="Insertion after given node">
             <p>Since each line of code is implemented once, it takes constant time to perform this function. Hence time complexity of insertion after a node is O(1).</p>
             <p>Also, no auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
             </div>
@@ -152,7 +152,7 @@
                 return;  <br>
               }  <br>
             </code>
-            <img src="lldel1.gif" alt="Deletion from beginning">
+            <img src="static/gif/lldel1.gif" alt="Deletion from beginning">
             <p>Since each line of code is implemented once, it takes constant time to perform this function. Hence time complexity of deletion from beginning is O(1).</p>
             <p>Also, no auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
             </div>
@@ -184,7 +184,7 @@
               } <br>
 
             </code>
-            <img src="lldel2.gif" alt="Deletion at end">
+            <img src="static/gif/lldel2.gif" alt="Deletion at end">
             <p>To reach the last element of linked list, we need to traverse the whole linked list.Hence time complexity of deleting a node from end is O(n).</p>
             <p>No auxiliary space dependent on number of elements in list is required, the space complexity is O(1).</p>
             </div>
@@ -215,7 +215,7 @@
                 delete temp; <br>
               }  <br>
             </code>
-            <img src="lldel3.gif" alt="Deleting a node using key">
+            <img src="static/gif/lldel3.gif" alt="Deleting a node using key">
             <p>In order to find the desired node, we need to traverse the linked list.</p>
             <p>The best case would be, when the desired node is first node. Time complexity would be O(1).</p>
             <p>In average case, desired node in middle of list, we would need to approximately n/2 operations, which mean Time complexity = O(n).</p>
@@ -225,9 +225,12 @@
 
           </div>
 
-        <div class="complexity">
+          
+            
           <h2>Time and space complexity Analysis</h2>
-            <table>
+          <div class="content-inner chart-cont">
+            <div class="row">
+          <table class="table table-hover">
               <tr>
                 <th>Operation</th>
                 <th>Time Complexity</th>
@@ -269,5 +272,8 @@
                 <td>O(1)</td>
               </tr>
             </table>
+            <!--table-->
+            <!--columns: function, time complexity, space complexity-->
+            </div>
         </div>
 {% endblock %}

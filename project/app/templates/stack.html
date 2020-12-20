@@ -9,7 +9,7 @@
                 A stack is a linear data structure, it serves as a collection of elements. It follows LIFO, i.e., last-in first-out. 
 		        In other words, the addition and removal of a new element in a stack takes place at the same end.		        		        
             </p>
-            <img src="StackRep.gif" alt="Graphical Representation of a Stack">
+            <img src="static/gif/StackRep.gif" alt="Graphical Representation of a Stack">
         </div>
         <div class="terminology">
             <p>
@@ -83,7 +83,7 @@
                 <p>
                     <u>Time Complexity</u>: O(1)
                 </p>
-                <img src="peek.gif" alt="Diagramatic representation of peek operation">
+                <img src="static/gif/peek.gif" style="width: 50%" alt="Diagramatic representation of peek operation">
             </div>
             <div class="operation">
                 <h3>Push:-</h3>
@@ -102,7 +102,7 @@
                 <p>
                     <u>Time Complexity</u>: O(1)
                 </p>
-                <img src="push.gif" alt="Diagramatic representation of push operation">
+                <img src="static/gif/push.gif" style="width: 50%" alt="Diagramatic representation of push operation">
             </div>
             <div class="operation">
                 <h3>Pop:-</h3>
@@ -122,13 +122,13 @@
                 <p>
                     <u>Time Complexity</u>: O(1)
                 </p>
-                <img src="pop.gif" alt="Diagramatic representation of pop operation">
+                <img src="static/gif/pop.gif" style="width: 50%" alt="Diagramatic representation of pop operation">
             </div>
             <p>
                 The following animation shows a list of operations being performed on a stack.<br>
                 push(2), push(4), push(6), pop(), peek(), push(8)<br>
             </p>
-            <img src="StackOp.gif" alt="Basic operations on a Stack">
+            <img src="static/gif/StackOp.gif" alt="Basic operations on a Stack">
         </div>
         <div class="implementation">
             <h2><strong>Implementation of two stacks using an array</strong></h2>
@@ -144,7 +144,7 @@
                 t1 = top of stack 1.<br>
                 t2 = top of stack 2.<br>                
             </p>
-            <img src="Method1.gif" alt="Graphical Representation of a implementation of method 1">
+            <img src="static/gif/Method1.gif" style="width: 50%" alt="Graphical Representation of a implementation of method 1">
             <p>
                 <u>Making stacks</u>:-
             </p>
@@ -248,7 +248,7 @@
                 The first stack starts from the leftmost element of the array and second stack starts from the rightmost element of the array. 
                 Both stacks increase/ decrease in the opposite direction.<br>                
             </p>
-            <img src="Method2.gif" alt="Graphical Representation of a implementation of method 2">
+            <img src="static/gif/Method2.gif" style="width: 50%" alt="Graphical Representation of a implementation of method 2">
             <p>
                 <u>Making stacks</u>:-
             </p>
@@ -351,7 +351,9 @@
         </div>
         <div class="complexity">
             <h2><strong>Time and Space Complexity</strong></h2>
-            <table>
+            <div class="content-inner chart-cont">
+                <div class="row">
+                <table class="table table-hover">
                 <tbody>
                     <tr>
                         <td width="200">
@@ -411,9 +413,13 @@
                 </tbody>
             </table>
         </div>
+    </div>
+        </div>
         <div class="comparison">
             <h2><strong>Difference between a stack and an array</strong></h2>
-            <table width="0">
+            <div class="content-inner chart-cont">
+                <div class="row">
+                <table class="table table-hover" width="0">
                 <tbody>
                     <tr>
                         <td width="240">
@@ -465,5 +471,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
+            </div>
         </div>
 {% endblock %}
