@@ -264,7 +264,7 @@ def quizar():
             if request.form[question.get('id')] == question.get('correct'):
                 result += 1
             total += 1
-        current_user.quiz1 = result 
+        current_user.quizAr = result 
         db.session.commit()
         return render_template('resultar.html', total=total, result=result)
 
@@ -279,7 +279,7 @@ def quizst():
             if request.form[question.get('id')] == question.get('correct'):
                 result += 1
             total += 1
-        current_user.quiz1 = result 
+        current_user.quizSt = result 
         db.session.commit()
         return render_template('resultst.html', total=total, result=result)
 @app.route('/quizTr',  methods=['GET', 'POST'])
@@ -294,9 +294,9 @@ def quiztr():
             if request.form[question.get('id')] == question.get('correct'):
                 result += 1
             total += 1
-        current_user.quiz1 = result 
+        current_user.quizTr = result 
         db.session.commit()
-        return render_template('resultll.html', total=total, result=result)
+        return render_template('resulttr.html', total=total, result=result)
 
 @app.route('/quizQu',  methods=['GET', 'POST'])
 @login_required
@@ -310,7 +310,7 @@ def quizqu():
             if request.form[question.get('id')] == question.get('correct'):
                 result += 1
             total += 1
-        current_user.quiz1 = result 
+        current_user.quizQu = result 
         db.session.commit()
         return render_template('resultqu.html', total=total, result=result)
 

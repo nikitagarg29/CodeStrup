@@ -14,6 +14,8 @@ class User(UserMixin, db.Model):
     quiz1 = db.Column(db.Integer)
     quizSt = db.Column(db.Integer)
     quizAr = db.Column(db.Integer)
+    quizTr = db.Column(db.Integer)
+    quizQu = db.Column(db.Integer)
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
